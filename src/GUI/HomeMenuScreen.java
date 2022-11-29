@@ -34,7 +34,7 @@ public class HomeMenuScreen extends JFrame implements ActionListener {
         JFrame.setDefaultLookAndFeelDecorated(true);
         this.setTitle("Slang Word Dictionary");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        //this.setResizable(false);
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBackground(Color.PINK);
@@ -70,7 +70,7 @@ public class HomeMenuScreen extends JFrame implements ActionListener {
         randomSlangBtn.setAlignmentX(JButton.CENTER_ALIGNMENT);
         quizBtn.setAlignmentX(JButton.CENTER_ALIGNMENT);
         exitBtn.setAlignmentX(JButton.CENTER_ALIGNMENT);
-        dictHeadingLb.setHorizontalAlignment((int) JPanel.CENTER_ALIGNMENT);
+        //dictHeadingLb.setHorizontalAlignment((int) JPanel.CENTER_ALIGNMENT);
         //dictHeadingLb.setLocation(600, 50);
         panel.add(dictHeadingLb);
         panel.add(Box.createRigidArea(new Dimension(0, 20)));
@@ -171,8 +171,8 @@ public class HomeMenuScreen extends JFrame implements ActionListener {
         if (option == JOptionPane.OK_OPTION) {
             String slang = slangTf.getText();
             String definition = definitionTf.getText();
-            DefinitionList definitionList = dictionary.get(slang);
-            if(definitionList == null){
+
+            if(dictionary.get(slang) == null){
                 dictionary.addNewSlang(slang, definition);
             }else{
                 int chosen = JOptionPane.showOptionDialog(null,"This slang word has existed. Please choose one option!",
@@ -194,8 +194,8 @@ public class HomeMenuScreen extends JFrame implements ActionListener {
         if (slang == null) {
             return;
         }
-        DefinitionList definitions = dictionary.get(slang);
-        if (definitions==null) {
+
+        if (dictionary.get(slang) ==null) {
             new NotificationScreen(this, "Slang is not found!", "Delete a slang");
         } else {
             int result = JOptionPane.showConfirmDialog(this, "Confirm to delete?", "Delete a slang", JOptionPane.YES_NO_OPTION);

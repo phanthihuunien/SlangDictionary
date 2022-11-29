@@ -23,6 +23,7 @@ public class DefinitionSearchScreen extends JFrame implements ActionListener {
         this.setTitle("Definition Searching");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocation(600, 300);
+        this.setResizable(false);
         cancelBtn.addActionListener(this);
         definitionList = definitionListPr;
         slangList = new JList<>(this.definitionList.toArray(new String[0]));

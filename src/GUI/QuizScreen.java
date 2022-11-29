@@ -36,6 +36,7 @@ public class QuizScreen extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Quizzes");
         this.setLocation(600, 300);
+        this.setResizable(false);
         this.answerIdx = answerIdx;
         this.answerBtn = new JButton[4];
         for(int i = 0; i<4; i++){

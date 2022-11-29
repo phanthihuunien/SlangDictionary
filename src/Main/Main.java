@@ -1,7 +1,7 @@
 package Main;
 
-import GUI.*;
-import Manage.*;
+import GUI.HomeMenuScreen;
+import Manage.Dictionary;
 
 import java.io.IOException;
 

@@ -27,10 +27,10 @@ public class History{
     }
     public  ArrayList<String> getHistoryList() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("history.txt"));
-        String word;
+        String slangWord;
         historyList.clear();
-        while ((word = br.readLine()) != null){
-            historyList.add(word);
+        while ((slangWord = br.readLine()) != null){
+            historyList.add(slangWord);
         }
         br.close();
         return historyList;

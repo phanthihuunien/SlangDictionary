@@ -12,13 +12,13 @@ import java.util.regex.Pattern;
  */
 public class Dictionary extends HashMap<String, DefinitionList> {
     private static Dictionary currentVer = null;
-    private Dictionary() {}
+    private Dictionary() {
+    }
     public static Dictionary getCurrentVer() {
         if (currentVer==null) {
             currentVer = new Dictionary();
         }
         return currentVer;
-
     }
     public List<String> searchDefinition(String definitionSearched){
         List<String> slangList = new ArrayList<>();
@@ -37,8 +37,7 @@ public class Dictionary extends HashMap<String, DefinitionList> {
     public void addNewSlang(String slangWord, String definition){
         DefinitionList definitionList = this.get(slangWord);
         if(definitionList == null){
-            DefinitionList newDefinitionList = new DefinitionList(definition);
-            this.put(slangWord, newDefinitionList);
+            this.put(slangWord, new DefinitionList(definition));
             return;
         }
         definitionList.add(definition);
@@ -73,13 +72,9 @@ public class Dictionary extends HashMap<String, DefinitionList> {
         String line;
         while ((line=br.readLine())!=null) {
             String[] part = line.split("`");
-            if (part.length<2) {
-                continue;
-            }
-            String slang = part[0];
-            String[] definitionList = part[1].split(Pattern.quote("|"));
-            DefinitionList definitions = new DefinitionList(definitionList);
-            this.put(slang, definitions);
+            if (part.length<2) continue;
+            DefinitionList definitions = new DefinitionList(part[1].split(Pattern.quote("|")));
+            this.put(part[0], definitions);
         }
         br.close();
     }

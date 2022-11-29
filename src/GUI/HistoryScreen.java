@@ -32,6 +32,7 @@ public class HistoryScreen extends JFrame implements ActionListener {
         this.setTitle("View history searching");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocation(600, 300);
+        this.setResizable(false);
         JScrollPane scrollPane = new JScrollPane(historyList);
         scrollPane.setPreferredSize(new Dimension(300,300));
         cancelBtn.addActionListener(this);

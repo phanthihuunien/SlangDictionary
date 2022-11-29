@@ -57,6 +57,7 @@ public class SlangSearchScreen extends JFrame implements ActionListener {
         this.setTitle("Slang Searching");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocation(600,300);
+        this.setResizable(false);
         this.add(panelDefinition, BorderLayout.CENTER);
         this.add(panelButton, BorderLayout.PAGE_END);
         this.pack();
@@ -66,7 +67,6 @@ public class SlangSearchScreen extends JFrame implements ActionListener {
 
     private  void addDefinition(){
         String definition = JOptionPane.showInputDialog("Enter another definition: ");
-
         dictionary.addNewSlang(slang, definition);
         dictionary.saveNewDefinitionToFile("UsedSLangFile.txt");
         loadAllDefinition();

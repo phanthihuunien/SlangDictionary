@@ -33,6 +33,7 @@ public class NotificationScreen extends JDialog implements ActionListener {
         panel.add(notiLb, BorderLayout.PAGE_START);
         panel.add(cancelBtn, BorderLayout.SOUTH);
         this.add(panel);
+        this.setResizable(false);
         this.pack();
         this.setSize(200,100);
         this.setVisible(true);
